@@ -1,0 +1,16 @@
+[Unit]
+Description=Discord time bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=discordbot
+WorkingDirectory=/opt/discord-time-bot
+EnvironmentFile=/opt/discord-time-bot/.env
+ExecStart=/opt/discord-time-bot/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
