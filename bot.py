@@ -30,6 +30,7 @@ guild = discord.Object(id=GUILD_ID)
 
 @tree.command(name="time", description="Show the current time across configured regions.", guild=guild)
 async def time_command(interaction: discord.Interaction):
+    print(f"/time invoked by {interaction.user}", flush=True)
     now = datetime.now(ZoneInfo("UTC"))
     label_width = max(len(label) for label, _ in REGIONS)
     lines = []
